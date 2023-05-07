@@ -1,3 +1,8 @@
+from Funciones.CartaPlasticidad import *
+from Funciones.Granulometria import *
+from Funciones.clasificacion import *
+import pandas as pd
+
 if Pasa_Tamiz200>50: #Granos finos
     print("El material corresponde a Granos Finos")
     ResultadosCarta()
