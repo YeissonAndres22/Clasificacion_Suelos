@@ -2,6 +2,7 @@ from Funciones.Granulometria import *
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+
 # Crear la gráfica con ambas líneas
 def CartaDePlasticidad(LL, IP):
     x = np.linspace(0, 100, 100)                                                      #Asigno valores de x desde 0 a 100, hagalo 100 veces
