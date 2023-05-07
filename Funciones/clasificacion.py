@@ -1,3 +1,4 @@
+
 #Porcentajes Pasa para hacer la INTERPOLACION
 Pasa_Tamiz4=Granulometria.loc[Granulometria['Malla'] == '#4', 'Pasa (%)'].iloc[0] #Porcentaje pasa tamiz 4
 Pasa_Tamiz10=Granulometria.loc[Granulometria['Malla'] == '#10', 'Pasa (%)'].iloc[0] #Porcentaje pasa tamiz 10
@@ -53,3 +54,29 @@ D60=(((abertura_inf_D60-abertura_sup_D60)/(valor_inf_D60-valor_sup_D60))*(60-val
 CC=(D30**(2))/(D60*D10)
 CU=D60/D10
 
+def ResultadosCarta():
+    LL=int(input("Ingrese limite liquido "))
+    IP=int(input("Ingrese indice de plasticidad "))
+    yLineaU = 0.9*(LL-8)
+    yLineaA = 0.73*(LL-20)
+    
+    if LL>50: #Alta Plasticidad
+        if 0<IP<yLineaA:#MH
+            print("Limos de alta plasticidad")
+        elif yLineaA<IP<yLineaU: #CH
+            print("Arcillas de alta plasticidad")
+        else:
+            print("NO EXISTE") #NO EXISTE
+    else: #Baja plasticidad
+        if 0<yLineaA: #ML
+            print("Limos de baja plasticidad")
+        elif yLineaA<yLineaU and 0<IP<4:#ML
+            print("Limos de baja plasticidad")
+        elif yLineaA<yLineaU and 4<IP<7:#CL-ML
+            print("Arcillas de baja plasticidad-ML=Limos de baja plasticidad")
+        elif yLineaA<yLineaU and 7<IP:#CL
+            print("Arcillas de baja plasticidad")
+        else:
+            print("NO EXISTE")
+    
+    CartaDePlasticidad(LL,IP)
