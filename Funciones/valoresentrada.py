@@ -1,61 +1,32 @@
-from Funciones.CartaPlasticidad import *
-from Funciones.Granulometria import *
-from Funciones.clasificacion import *
 import pandas as pd
 
-if Pasa_Tamiz200>50: #Granos finos
-    print("El material corresponde a Granos Finos")
-    ResultadosCarta()
-       
-else: #Granos Gruesos
-    print("El material corresponde a Granos gruesos")
-    if Pasa_Tamiz4>50:
-        if Pasa_Tamiz200<5:#Analizar Cu y CC
-            if CU>6 and 1<CC<3:
-                print("Arena bien graduada")
-            else:
-                print("Arena pobremente graduada")
-        elif 5<Pasa_Tamiz200<12:#Analizar Cu, CC y carta de plasticidad
-            if CU>6 and 1<CC<3:
-                print("Arena bien graduada")
-                ResultadosCarta()
-                print("Es una arena bien graduada con",ResultadosCarta())
-                ResultadosCarta()
-            else:
-                print("Arena pobremente graduada")
-                ResultadosCarta()
-                print("Es una Arena pobremente graduada con",ResultadosCarta())
-                ResultadosCarta()
-        else: #Analizar carta de plasticidad
-            print("Arena")
-            if CU>6 and 1<CC<3:
-                print("Es una Arena limosa")
-                ResultadosCarta()
-            else:
-                print("Es una Arena arcillosa")
-                ResultadosCarta()
-    else: #Gravas
-        if Pasa_Tamiz200<5:#Analizar Cu y CC
-            if CU>4 and 1<CC<3:
-                print("Grava bien graduada")
-            else:
-                print("Grava pobremente graduada")
-        elif 5<Pasa_Tamiz200<12:#Analizar Cu, CC y carta de plasticidad
-            if CU>6 and 1<CC<3:
-                print("Grava bien graduada")
-                ResultadosCarta()
-                print("Es una Grava bien graduada con",ResultadosCarta())
-                ResultadosCarta()
-            else:
-                print("Grava pobremente graduada")
-                print(ResultadosCarta())
-                print("Es una Grava pobremente graduada con",ResultadosCarta())
-                ResultadosCarta()
-        else: #Analizar carta de plasticidad
-            print("Grava") 
-            if ResultadosCarta()=="Limos de baja plasticidad":
-                print("Es una Grava limosa")
-                ResultadosCarta()
-            else:
-                print("Es una Grava arcillosa")
-                ResultadosCarta()
+malla=pd.Series([
+"#4", #Tamiz 4
+"#10", #Tamiz 10
+"#20", #Tamiz 20
+"#40", #Tamiz 40
+"#60", #Tamiz 60
+"#140", #Tamiz 140
+"#200", #Tamiz 200
+"Fondo", #Pasa tamiz#200
+])
+abertura=pd.Series([ #Malla en mm
+4.75, #Tamiz 4
+2,  #Tamiz 10
+0.85, #Tamiz 20
+0.425, #Tamiz 40
+0.25, #Tamiz 60
+0.106, #Tamiz 140
+0.075, #Tamiz 200
+0 #Fondo
+])
+retenido=pd.Series([ #Material retenido por tamiz en gramos
+25,  #Tamiz 4
+38, #Tamiz 10
+71, #Tamiz 20
+43, #Tamiz 40
+33, #Tamiz 60
+26, #Tamiz 140
+480, #Tamiz 200
+80 #Fondo
+])
