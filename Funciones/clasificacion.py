@@ -65,7 +65,7 @@ def ResultadosCarta():
     IP=int(input("Ingrese indice de plasticidad "))
     yLineaU = 0.9*(LL-8)
     yLineaA = 0.73*(LL-20)
-    Grafica()
+    
     if LL>50: #Alta Plasticidad
         if 0<IP<yLineaA:#MH
             print("Limos de alta plasticidad")
@@ -74,16 +74,15 @@ def ResultadosCarta():
         else:
             print("NO EXISTE") #NO EXISTE
     else: #Baja plasticidad
-        if 0<yLineaA: #ML
+        if 0<=yLineaA: #ML
             print("Limos de baja plasticidad")
-        elif yLineaA<yLineaU and 0<IP<4:#ML
+        elif yLineaA<LL<yLineaU and 0<IP<4:#ML
             print("Limos de baja plasticidad")
-        elif yLineaA<yLineaU and 4<IP<7:#CL-ML
-            print("Arcillas de baja plasticidad-ML=Limos de baja plasticidad")
-        elif yLineaA<yLineaU and 7<IP:#CL
+        elif yLineaA<LL<yLineaU and 4<IP<7:#CL-ML
+            print("Arcillas de baja plasticidad-Limos de baja plasticidad")
+        elif yLineaA<LL<yLineaU and 7<IP:#CL
             print("Arcillas de baja plasticidad")
         else:
             print("NO EXISTE")
     
     CartaDePlasticidad(LL,IP)
-
