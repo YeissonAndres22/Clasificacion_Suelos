@@ -1,3 +1,4 @@
 from Funciones.CartaPlasticidad import *
 from Funciones.Granulometria import *
-Granulometria()
+from Funciones.clasificacion import *
+Clasificacion_suelos()
