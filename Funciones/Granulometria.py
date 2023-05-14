@@ -19,12 +19,10 @@ pd.options.display.float_format = '{:.3f}'.format #Para que el dataframe quede c
 
 def Grafica():
     #Se grafica la línea de la granulometría
-    plt.figure(num="CurvaGranulometrica")
     plt.figure(figsize=(14, 5)) 
     plt.plot(abertura,FrameGranulometria["Pasa (%)"],linestyle='-', marker='o', color='k', fillstyle='none',label='Data') 
     f = interp1d(FrameGranulometria["Pasa (%)"], abertura)
     #grafica
-    plt.title("Curva granulométrica",fontsize=15)
     plt.xlabel('Diámetro (mm)')
     plt.ylabel('Porcentaje pasa (%)')
     plt.legend() 
@@ -66,5 +64,4 @@ def Grafica():
     x_values = [4, 3, 2, 1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.09, 0.08]
     for x in x_values:
         plt.axvline(x=x, color='grey', ls='-', lw='0.3')
-
     plt.show()
