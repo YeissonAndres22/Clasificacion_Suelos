@@ -22,11 +22,11 @@ abertura=pd.Series([ #Malla en mm
 ])
 retenido=pd.Series([ #Material retenido por tamiz en gramos
 25,  #Tamiz 4
-38, #Tamiz 10
+58, #Tamiz 10
 71, #Tamiz 20
-43, #Tamiz 40
-33, #Tamiz 60
-26, #Tamiz 140
-480, #Tamiz 200
-80 #Fondo
+83, #Tamiz 40
+133, #Tamiz 60
+246, #Tamiz 140
+280, #Tamiz 200
+480 #Fondo
 ])
